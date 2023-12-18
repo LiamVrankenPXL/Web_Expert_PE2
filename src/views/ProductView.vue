@@ -1,29 +1,29 @@
 <script>
 import producten from '@/producten.json';
 
-
 export default {
   data() {
     return {
-      producten: producten.artikelen,
+      producten: [],
       filteredProducts: [],
-    }
+    };
   },
-
-  methods: {
-    filterDureProducts() {
-      this.filteredProducts = this.producten.filter(product => {
-        return product.filter === 'duur';
-      });
+  computed: {
+    dureProducts() {
+      return this.producten.artikelen.filter(product => product.prijs > 20);
     },
-
-    filterGoedkoopProducts() {
-      this.filteredProducts = this.producten.filter(product => {
-        return product.filter === 'goedkoop';
-      })
-    }
+    goedkopeProducts() {
+      return this.producten.artikelen.filter(product => product.prijs < 20);
+    },
+    gemiddeldeProducts() {
+      return this.producten.artikelen.filter(product => product.prijs >= 15 && product.prijs <= 25);
+    },
   },
 
+  mounted() {
+    this.producten = producten;
+    this.filteredProducts = this.producten.artikelen;
+  },
 }
 </script>
 
@@ -45,8 +45,9 @@ export default {
         </div>
         <!-- filteropties -->
         <div class="product__filter">
-          <span class="filter-option" @click="filterDureProducts">Dure producten</span>
-          <span class="filter-option" @click="filterGoedkoopProducts">Dure producten</span>
+          <span class="filter-option" @click="filteredProducts = dureProducts">Dure producten</span>
+          <span class="filter-option" @click="filteredProducts = goedkopeProducts">Goedkope producten</span>
+          <span class="filter-option" @click="filteredProducts = gemiddeldeProducts">Gemiddelde producten</span>
         </div>
       </div>
     </div>
@@ -54,7 +55,7 @@ export default {
 
     <!--products-->
     <div class="card__layout">
-      <div v-for="product in producten" :key="product.id" class="card">
+      <div v-for="product in filteredProducts" :key="product.id" class="card">
         <img :src="product.afbeelding" :alt="product.titel" class="card__image">
         <div class="card__content">
           <h2 class="card__title">{{ product.titel }}</h2>

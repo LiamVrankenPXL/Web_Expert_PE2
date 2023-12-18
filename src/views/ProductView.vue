@@ -1,5 +1,6 @@
 <script>
 import producten from '../../producten.json';
+import ProductCardComponent from "@/components/ProductCardComponent.vue";
 
 export default {
   data() {
@@ -7,9 +8,27 @@ export default {
       producten: [],
       filteredProducts: [],
       zoektekst: '',
+      itemsPerPage: 8,
+      currentPage: 1,
     };
   },
+  components: {
+    ProductCardComponent,
+  },
+
   computed: {
+    totalProducts() {
+      return this.filteredProducts.length;
+    },
+    totalPages() {
+      return Math.ceil(this.totalProducts / this.itemsPerPage);
+    },
+    displayedProducts() {
+      const start = (this.currentPage - 1) * this.itemsPerPage;
+      const end = start + this.itemsPerPage;
+      return this.filteredProducts.slice(start, end);
+    },
+
     dureProducts() {
       return this.producten.artikelen.filter(product => product.prijs > 20);
     },
@@ -26,6 +45,10 @@ export default {
       this.filteredProducts = this.producten.artikelen.filter(product =>
           product.titel.toLowerCase().includes(this.zoektekst.toLowerCase())
       );
+      this.currentPage = 1;
+    },
+    changePage(page) {
+      this.currentPage = page;
     },
   },
 
@@ -34,7 +57,6 @@ export default {
     this.filteredProducts = this.producten.artikelen;
   },
 }
-
 </script>
 
 <template>
@@ -63,28 +85,17 @@ export default {
     </div>
 
 
-    <!--products-->
-    <div class="card__layout">
-      <div v-for="product in filteredProducts" :key="product.id" class="card">
-        <img :src="product.afbeelding" :alt="product.titel" class="card__image">
-        <div class="card__content">
-          <h2 class="card__title">{{ product.titel }}</h2>
-          <p class="card__description">{{ product.omschrijving }}</p>
-        </div>
-        <div class="card__details">
-          <p class="card__price">{{ '€' + product.prijs.toFixed(2) }}</p>
-          <button class="card__button">Bekijk meer</button>
-        </div>
-      </div>
-    </div>
+    <ProductCardComponent
+        :products="displayedProducts" />
 
     <!--pagination-->
-    <div class="pagination">
+    <div class="pagination" v-if="totalPages > 1">
       <ul>
-        <li><a href="#" class="active">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
+        <li v-for="page in totalPages" :key="page">
+          <a href="#" :class="{ active: currentPage === page }" @click="changePage(page)">
+            {{ page }}
+          </a>
+        </li>
       </ul>
     </div>
   </body>

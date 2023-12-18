@@ -1,5 +1,37 @@
 <script>
+import producten from '../../producten.json';
 
+export default {
+  data() {
+    return {
+      producten: [],
+      carouselProducten: [],
+      currentIndex: 0,
+    }
+  },
+  mounted() {
+    this.producten = producten.artikelen;
+    this.sortAndSetCarouselProducts();
+  },
+  methods: {
+    sortAndSetCarouselProducts() {
+      this.producten.sort((a, b) => b.voorraad - a.voorraad);
+      this.carouselProducten = this.producten.slice(0, 5);
+    },
+    nextProduct() {
+      // Ga naar het volgende product in de carrousel
+      if (this.currentIndex < this.carouselProducten.length - 1) {
+        this.currentIndex++;
+      }
+    },
+    prevProduct() {
+      // Ga naar het vorige product in de carrousel
+      if (this.currentIndex > 0) {
+        this.currentIndex--;
+      }
+    },
+  }
+}
 </script>
 
 <template>
@@ -16,18 +48,27 @@
   </div>
 
 
+
   <!--in de kijker -->
   <div class="index__kijker">
     <div class="index__kijker__links">
-      <img src="@/assets/images/product9.png" alt="persoon">
+      <img v-if="carouselProducten[currentIndex]" :src="carouselProducten[currentIndex].afbeelding" :alt="carouselProducten[currentIndex].titel">
+      <button @click="prevProduct" :disabled="currentIndex === 0">Vorige</button>
+      <button @click="nextProduct" :disabled="currentIndex === carouselProducten.length - 1">Volgende</button>
     </div>
     <div class="index__kijker__rechts">
-      <p>Nieuw!</p>
-      <h1>Dream catcher</h1>
-      <p>Ontdek de eerste van een betoverende nieuwe reeks met deze dromenvangersticker, die een wereld van mystiek en charme onthult.</p>
+      <p>Populaire producten</p>
+      <h1 v-if="carouselProducten[currentIndex] && carouselProducten[currentIndex].titel">
+        {{ carouselProducten[currentIndex].titel }}
+      </h1>
+      <p v-if="carouselProducten[currentIndex] && carouselProducten[currentIndex].omschrijving">
+        {{ carouselProducten[currentIndex].omschrijving }}
+      </p>
       <button type="button">Meer info</button>
     </div>
   </div>
+
+
 
 
   <!--    rotating cards-->

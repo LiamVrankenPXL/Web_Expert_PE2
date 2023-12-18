@@ -1,5 +1,5 @@
 <script>
-import producten from '@/producten.json';
+import producten from '../../producten.json';
 
 export default {
   data() {

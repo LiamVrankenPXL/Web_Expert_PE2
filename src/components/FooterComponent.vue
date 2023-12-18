@@ -2,7 +2,7 @@
 export default {
   data() {
     return {
-      lvLogoExtendedFooter: '@/assets/images/logo_deel_2.png',
+      lvLogoExtendedFooter: 'src/assets/images/logo_deel_2.png',
       lvLogoExtendedAltFooter: "Logo afbeelding extended",
       productNaamFooter: "Product",
       productArtikelFooter: "All kinds of crystals",

@@ -48,6 +48,10 @@ body {
 .main-nav {
   background-color: transparent;
   color: $wit;
+
+  .nav-item {
+    color: $wit;
+  }
   .brand {
     .toggle-icon {
       font-size: $font_titel;
@@ -106,7 +110,7 @@ body {
   .signin__rechts {
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-    background-image: url("../assets/images/abstract_background.jpg");
+    background-image: url("../src/assets/images/abstract_background.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

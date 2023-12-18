@@ -1,0 +1,508 @@
+@use 'base' as *;
+
+/*_____FONDS/ALGEMEEN START_____*/
+h1, h2, h3 {
+  font-family: $font_Oswald;
+  color: $donkerder_blauw;
+
+}
+
+h1 {
+  font-weight: 600;
+  font-size: $font_titel;
+}
+
+label, p, a {
+  font-family: $font_Rubik;
+  font-size: $font_tekst;
+  color: $zwart;
+}
+
+li, a {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+body {
+  background-color: $donker_thema;
+}
+
+#achtergrond {
+  @include achtergrondAfbeelding("../assets/images/achtergrond.png")
+}
+
+#achtergrond2 {
+  @include achtergrondAfbeelding("../assets/images/achtergrond2.png")
+
+}
+
+#achtergrond2 {
+  @include achtergrondAfbeelding("../assets/images/achtergrond3.png")
+
+}
+/*_____FONDS/ALGEMEEN EINDE_____*/
+
+
+
+/*________NAV START________*/
+.main-nav {
+  background-color: transparent;
+  color: $wit;
+  .brand {
+    .toggle-icon {
+      font-size: $font_titel;
+    }
+  }
+
+  @media (min-width: 1025px) {
+    .nav-item {
+      i {
+        font-size: $font_subtitel;
+      }
+    }
+  }
+}
+/*________NAV EINDE________*/
+
+
+
+/*________LOGIN START________*/
+.login {
+  h1 {
+    font-size: $font_subtitel2;
+  }
+  &__links {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: $blauw;
+
+
+    .login__gegevens {
+      &__adres__tekst,
+      &__wachtwoord__tekst {
+        font-size: $font_klein;
+      }
+
+      .login__radio__forgot label, .login__radio__forgot a{
+        font-size: $font_klein;
+      }
+    }
+
+    .login__signin__more {
+      i {
+        font-size: $font_subtitel2;
+      }
+    }
+
+    button {
+      @include buttonOpmaak();
+
+      &:hover {
+        background-color: $donkerder_blauw;
+      }
+    }
+  }
+
+  .signin__rechts {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-image: url("../assets/images/abstract_background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    h1 {
+      font-size: $font_subtitel2;
+      color: $licht_blauw;
+    }
+
+    p {
+      color: $licht_blauw;
+      font-size: $font_klein;
+    }
+
+    button {
+      @include buttonOpmaak($licht_blauw);
+      color: $zwart;
+
+      &:hover {
+        background-color: $blauw;
+      }
+    }
+  }
+}
+/*________LOGIN EINDE________*/
+
+
+
+
+/*________PRODUCT START________*/
+/*________product header gegevens start________*/
+.product__header {
+  h1 {
+    color: $licht_blauw;
+  }
+
+  p {
+    color: $wit;
+  }
+
+  /*________search/filter gegevens start________*/
+  .product__search {
+    &__bar {
+      input {
+        border: 1px solid $licht_blauw;
+        border-radius: 4px 0 0 4px;
+      }
+
+      button {
+        background-color: $donker_blauw;
+        border: none;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: $donkerder_blauw;
+        }
+      }
+    }
+  }
+}
+.product__filter {
+  .filter-option {
+    transition: background-color 0.3s;
+    background-color: $blauw;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: $donker_blauw;
+      color: $licht_blauw;
+    }
+  }
+}
+
+
+
+
+/*________product cards gegevens________*/
+.card {
+  &__title {
+    color: $licht_blauw;
+  }
+
+  &__description {
+    color: $wit;
+  }
+
+  &__details {
+    p {
+      font-weight: bold;
+      color: $licht_blauw;
+    }
+
+    button {
+      @include buttonOpmaak($licht_blauw);
+      margin: 0 auto;
+      color: $donkerder_blauw;
+
+      &:hover {
+        background-color: $blauw;
+      }
+    }
+  }
+}
+
+
+/*________pagination gegevens________*/
+.pagination {
+    a {
+      display: block;
+      text-decoration: none;
+      color: $donkerder_blauw;
+      background-color: $licht_blauw;
+      font-size: $font_klein;
+      border: none;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+
+      &.active {
+        background-color: $blauw;
+        color: $wit;
+      }
+
+      &:hover {
+        background-color: $blauw;
+      }
+    }
+}
+/*________PRODUCT EINDE________*/
+
+
+/*________PRODUCT DETAIL________*/
+.detail {
+  &__layout {
+    background-color: $licht_blauw;
+    border-radius: 4px;
+
+    &__foto {
+      background-color: $blauw;
+      border-radius: 20px;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+
+    }
+
+    @media screen and (min-width: 1800px) {
+      &__tekst {
+        font-size: $font_tekst;
+      }
+    }
+
+    &__tekst {
+      &__stars {
+        i, p {
+          color: $donkerder_blauw;
+        }
+      }
+
+      &__info {
+        .aanwezigheid {
+          color: $succes;
+          font-size: $font_klein;
+        }
+
+        h2 {
+          font-size: $font_titel;
+        }
+      }
+
+      &__options {
+        a {
+          text-decoration: none;
+          color: $zwart;
+          border-right: 1px solid black;
+
+          &:last-child {
+            border-right: none;
+          }
+        }
+
+        a:first-child {
+          font-weight: 600;
+        }
+
+        a:hover,
+        a:first-child:active {
+          font-weight: 600;
+        }
+
+      }
+
+      &__buttons {
+        button {
+          @include buttonOpmaak();
+
+          &:hover {
+            background-color: $donkerder_blauw;
+          }
+        }
+      }
+
+      .quantityDropdown {
+        @include buttonOpmaak();
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  h1 {
+    font-size: $font_subtitel;
+  }
+
+  p {
+    font-size: $font_tekst;
+  }
+}
+
+/*________PRODUCT DETAIL EINDE________*/
+
+
+
+
+/*________INDEX START________*/
+.index__header {
+  &__links {
+    h1 {
+      color: $licht_blauw;
+      font-size: $font_groot;
+    }
+
+    p {
+      color: $wit;
+    }
+
+    button {
+      @include buttonOpmaak();
+
+      &:hover {
+        background-color: $donkerder_blauw;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px){
+  .index__header {
+    h1 {
+      font-size: $font_titel;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .index__header {
+    &__links {
+      h1 {
+        font-size: $font_titel_gsm;
+      }
+    }
+  }
+}
+
+
+/* Basisstijlen voor de kijker start*/
+.index__kijker {
+  &__rechts {
+    h1 {
+      color: $licht_blauw;
+      font-size: $font-groot;
+    }
+
+    p {
+      color: $wit;
+    }
+
+    button {
+      @include buttonOpmaak();
+
+      &:hover {
+        background-color: $donkerder_blauw;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .index__kijker {
+    h1 {
+      font-size: $font_titel_gsm;
+    }
+  }
+}
+
+
+/* index cards */
+.index__card {
+  h1 {
+    color: $licht_blauw;
+    font-size: $font_titel;
+  }
+
+  &__rotate {
+    &__special {
+      background-color: $blauw;
+      border-radius: 10px;
+
+
+      h2 {
+        font-size: $font_subtitel2;
+      }
+
+    }
+  }
+}
+
+
+
+/* contact cards */
+.index__contact {
+  &__rechts {
+    h1 {
+      color: $licht_blauw;
+    }
+
+    p {
+      color: $wit;
+    }
+
+    button {
+      @include buttonOpmaak();
+
+      &:hover {
+        background-color: $donkerder_blauw;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .index__card {
+    h1 {
+      font-size: $font_titel_gsm;
+    }
+  }
+}
+
+/*________INDEX EINDE________*/
+
+
+/*________FOOTER START________*/
+
+.footer {
+  background-color: $blauw;
+
+  @media (max-width: 767px) {
+    .footer__titel {
+      font-size: $font_titel_gsm;
+    }
+
+    .footer__tekst {
+      font-size: $font_tekst_gsm;
+    }
+
+    .footer__kleinTekst {
+      font-size: $font_kleinKekst_gsm;
+    }
+
+    button {
+      @include buttonOpmaakGsm();
+    }
+  }
+
+  &__section {
+    &__contact {
+      button {
+        @include buttonOpmaak();
+
+        &:hover {
+          background-color: $donkerder_blauw;
+        }
+      }
+    }
+
+    .footer__titel {
+      font-size: $font_subtitel;
+    }
+
+    .footer__tekst {
+      font-size: $font_tekst;
+    }
+  }
+
+  &__copy-right {
+    border-top: 1px solid $donkerder_blauw;
+    background-color: $blauw;
+  }
+}
+/*________FOOTER EINDE________*/
+

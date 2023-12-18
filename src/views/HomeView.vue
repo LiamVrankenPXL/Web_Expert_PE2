@@ -1,13 +1,17 @@
 <script>
 import producten from '../../producten.json';
+import PopularProductsComponent from "@/components/PopularProductsComponent.vue";
 
 export default {
+  components: {
+    PopularProductsComponent
+  },
   data() {
     return {
       producten: [],
       carouselProducten: [],
       currentIndex: 0,
-    }
+    };
   },
   mounted() {
     this.producten = producten.artikelen;
@@ -19,54 +23,41 @@ export default {
       this.carouselProducten = this.producten.slice(0, 5);
     },
     nextProduct() {
-      // Ga naar het volgende product in de carrousel
       if (this.currentIndex < this.carouselProducten.length - 1) {
         this.currentIndex++;
       }
     },
     prevProduct() {
-      // Ga naar het vorige product in de carrousel
       if (this.currentIndex > 0) {
         this.currentIndex--;
       }
     },
   }
-}
+};
 </script>
 
 <template>
   <!--head-->
   <div class="index__header">
     <div class="index__header__links">
-      <h1>Ontdek Creatieve Expressie met Onze Unieke Sticker Collectie!</h1>
-      <p>Verrijk je wereld met onze unieke stickers! Van speelse illustraties tot strakke ontwerpen, vind de perfecte toevoeging voor je laptop, waterfles of notitieboek. Ontdek jouw creativiteit met de betoverende collectie van positive vibes!</p>
+      <h1>Ontdek onze collectie over verschillende soorten kristallen</h1>
+      <p>Verken onze diverse kristalcollectie en ontdek de unieke schoonheid en energie van verschillende soorten kristallen. Van de betoverende amethist tot het heldere bergkristal, laat je inspireren door de pracht van deze bijzondere stenen.</p>
       <button type="button">Shop nu!</button>
     </div>
     <div class="index__header__rechts">
-      <img src="@/assets/images/Free_Round_Roll_Sticker_Mockup_1.png" alt="mock-up sticker rol">
+      <img src="@/assets/images/all_kinds_of_stones.png" alt="mock-up sticker rol">
     </div>
   </div>
 
 
 
   <!--in de kijker -->
-  <div class="index__kijker">
-    <div class="index__kijker__links">
-      <img v-if="carouselProducten[currentIndex]" :src="carouselProducten[currentIndex].afbeelding" :alt="carouselProducten[currentIndex].titel">
-      <button @click="prevProduct" :disabled="currentIndex === 0">Vorige</button>
-      <button @click="nextProduct" :disabled="currentIndex === carouselProducten.length - 1">Volgende</button>
-    </div>
-    <div class="index__kijker__rechts">
-      <p>Populaire producten</p>
-      <h1 v-if="carouselProducten[currentIndex] && carouselProducten[currentIndex].titel">
-        {{ carouselProducten[currentIndex].titel }}
-      </h1>
-      <p v-if="carouselProducten[currentIndex] && carouselProducten[currentIndex].omschrijving">
-        {{ carouselProducten[currentIndex].omschrijving }}
-      </p>
-      <button type="button">Meer info</button>
-    </div>
-  </div>
+  <PopularProductsComponent
+      :carouselProducten="carouselProducten"
+      :currentIndex="currentIndex"
+      @prevProduct="prevProduct"
+      @nextProduct="nextProduct"
+  />
 
 
 
@@ -76,15 +67,15 @@ export default {
     <h1>Waarom voor ons kiezen?</h1>
     <div class="index__card__rotate">
       <div class="index__card__rotate__special" id="card__1">
-        <h2>Kwaliteits volle stickers</h2>
+        <h2>Echte kristallen</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab asperiores, debitis doloribus earum eligendi eum illum saepe. A cumque cupiditate, eaque eligendi facere harum magni modi nisi numquam sed ut?</p>
       </div>
       <div class="index__card__rotate__special" id="card__2">
-        <h2>Duurzaam en milieu vriendelijk</h2>
+        <h2>Duurzaam en milieu vriendelijk gemijnd</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab asperiores, debitis doloribus earum eligendi eum illum saepe. A cumque cupiditate, eaque eligendi facere harum magni modi nisi numquam sed ut?</p>
       </div>
       <div class="index__card__rotate__special" id="card__3">
-        <h2>hoge resolutie foto's</h2>
+        <h2>De meest unieke kristallen vormen</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab asperiores, debitis doloribus earum eligendi eum illum saepe. A cumque cupiditate, eaque eligendi facere harum magni modi nisi numquam sed ut?</p>
       </div>
     </div>

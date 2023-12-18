@@ -63,8 +63,8 @@ export default {
   <body  id="achtergrond2">
     <div class="product__header">
       <div class="product__top">
-        <h1>Sticker store</h1>
-        <p>Onze winkel heeft een variatie aan verschillende soorten stickers. Voor iedereen zit er wel iets tussen.</p>
+        <h1>Kristallen shop</h1>
+        <p>Onze winkel heeft een variatie aan verschillende soorten kristallen. Voor iedereen zit er wel een steentje tussen.</p>
       </div>
     </div>
 

@@ -512,20 +512,29 @@
 
 
 
-/* Basisstijlen voor de kijker start*/
+/* Basisstijlen voor de kijker start */
 .index__kijker {
   @include flexLayout;
   margin: 60px 20px 20px 20px;
   padding: 20px;
 
+  &__links__2 {
+    flex-basis: 5%;
+  }
+
   &__links {
-    flex-basis: 30%;
+    flex-basis: 25%;
     text-align: center;
 
     img {
-      margin-right: 30px;
+      margin-right: 50px;
       width: 100%;
-      height: auto;
+      height: 450px;  // Vaste hoogte voor de afbeelding
+      object-fit: contain;  // Behoud de aspect ratio en bedek volledig
+    }
+
+    button {
+      @include buttonLayoutKlein;
     }
   }
 
@@ -549,10 +558,12 @@
 
     button {
       @include buttonLayoutKleinGsm;
+      margin-top: 20px;  // Aangepaste marge voor de knop op kleinere schermen
     }
 
     img {
-      width: 50%;
+      width: 100%;  // Standaard breedte voor de afbeelding op kleinere schermen
+      height: auto;
     }
   }
 }

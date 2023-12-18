@@ -7,11 +7,7 @@
     <div class="detail">
       <div class="detail__layout">
         <div class="detail__layout__foto">
-          <img src="@/assets/images/Free_Round_Roll_Sticker_Mockup_1.png" alt="Sticker_mock-up_Succes">
-          <div class="detail__layout__aanzichten">
-            <img src="@/assets/images/sticker_good%20luck.png" alt="Sticker_mock-up_succes">
-            <img src="@/assets/images/sticker_prosperity.png" alt="Sticker_mock-up_prosperity">
-          </div>
+          <img src="@/assets/images/product__1.webp" alt="amethyst">
         </div>
         <div class="detail__layout__tekst">
           <div class="detail__layout__tekst__stars">

@@ -14,7 +14,7 @@ export default {
         <h2 class="card__title">{{ item.titel }}</h2>
         <p class="card__description">{{ item.omschrijving }}</p>
       </div>
-      <div class="card__details">
+      <div class="card__details">v
         <p class="card__price">{{ '€' + item.prijs.toFixed(2) }}</p>
         <button class="card__button">Bekijk meer</button>
       </div>

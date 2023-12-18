@@ -6,6 +6,7 @@ export default {
     return {
       producten: [],
       filteredProducts: [],
+      zoektekst: '',
     };
   },
   computed: {
@@ -20,11 +21,20 @@ export default {
     },
   },
 
+  methods: {
+    filterProducten() {
+      this.filteredProducts = this.producten.artikelen.filter(product =>
+          product.titel.toLowerCase().includes(this.zoektekst.toLowerCase())
+      );
+    },
+  },
+
   mounted() {
     this.producten = producten;
     this.filteredProducts = this.producten.artikelen;
   },
 }
+
 </script>
 
 <template>
@@ -40,7 +50,7 @@ export default {
     <div class="product__search">
       <div class="product__layout">
         <div class="product__search__bar">
-          <input type="text" placeholder="Zoeken...">
+          <input type="text" placeholder="Zoeken..." v-model="zoektekst" @input="filterProducten">
           <button><i class="fas fa-search"></i></button>
         </div>
         <!-- filteropties -->
@@ -75,7 +85,6 @@ export default {
         <li><a href="#">2</a></li>
         <li><a href="#">3</a></li>
         <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
       </ul>
     </div>
   </body>

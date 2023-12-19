@@ -3,9 +3,15 @@ export default {
   props: {
     products: Array,
   },
+  methods: {
+    viewProductDetail(productId) {
+      this.$router.push({ name: 'productDetail', params: { id: productId } });
+    }
+  }
 };
 </script>
 
+<!-- ProductCardComponent.vue -->
 <template>
   <div class="card__layout">
     <div v-for="item in products" :key="item.id" class="card">
@@ -14,9 +20,9 @@ export default {
         <h2 class="card__title">{{ item.titel }}</h2>
         <p class="card__description">{{ item.omschrijving }}</p>
       </div>
-      <div class="card__details">v
+      <div class="card__details">
         <p class="card__price">{{ '€' + item.prijs.toFixed(2) }}</p>
-        <button class="card__button">Bekijk meer</button>
+        <button @click="viewProductDetail(item.id)" class="card__button">Bekijk meer</button>
       </div>
     </div>
   </div>

@@ -50,6 +50,9 @@ export default {
     changePage(page) {
       this.currentPage = page;
     },
+    showProductDetails(product) {
+      this.$router.push({ name: "productDetail", params: { id: product.id } });
+    },
   },
 
   mounted() {
@@ -57,6 +60,7 @@ export default {
     this.filteredProducts = this.producten.artikelen;
   },
 }
+
 </script>
 
 <template>

@@ -49,8 +49,7 @@ export default {
     </div>
   </div>
 
-
-
+  
   <!--in de kijker -->
   <PopularProductsComponent
       :carouselProducten="carouselProducten"
@@ -58,9 +57,6 @@ export default {
       @prevProduct="prevProduct"
       @nextProduct="nextProduct"
   />
-
-
-
 
   <!--    rotating cards-->
   <div class="index__card">

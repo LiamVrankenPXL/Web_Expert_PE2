@@ -1,5 +1,12 @@
 <script>
 
+export default {
+  data() {
+    return {
+      store: winkelmandje()
+    }
+  },
+}
 </script>
 
 <template>

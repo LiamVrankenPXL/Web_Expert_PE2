@@ -1,11 +1,46 @@
 <script>
 import producten from '../../producten.json';
+import PopupComponent from "@/components/PopupComponent.vue";
 
 export default {
   data() {
     return {
-      product: [],
+      product: {},
+      quantity: 1,
+      showPopup: false,
+      popupMessage: '',
     };
+  },
+  components: {
+    PopupComponent,
+  },
+  methods: {
+    addToCart() {
+      console.log('Product toegevoegd aan winkelmandje', {
+        id: this.product.id,
+        quantity: parseInt(this.quantity, 10),
+        price: this.product.prijs,
+        name: this.product.titel,
+      });
+
+      // Laat de popup zien met het juiste bericht
+      this.showPopup = true;
+      this.popupMessage = `Product "${this.product.titel}" is toegevoegd aan je winkelmandje.`;
+    },
+    closePopup() {
+      this.showPopup = false;
+      this.popupMessage = '';
+    },
+    goToCart() {
+      // Implementeer navigatie naar winkelmandje
+      console.log('Navigeer naar winkelmandje');
+      this.closePopup();
+    },
+    goToProducts() {
+      // Implementeer navigatie naar productenpagina
+      console.log('Navigeer naar productenpagina');
+      this.closePopup();
+    },
   },
   mounted() {
     const productId = parseInt(this.$route.params.id);
@@ -13,8 +48,6 @@ export default {
   },
 };
 </script>
-
-<!-- ProductDetailView.vue -->
 <template>
   <div v-if="product" class="detail">
     <div class="detail__layout">
@@ -34,19 +67,16 @@ export default {
           <h1>{{ product.titel }}</h1>
           <p>{{ product.omschrijving }}</p>
           <p class="aanwezigheid">{{ product.hoeveelheid_voorraad > 0 ? `Aanwezig` : `Niet meer beschikbaar` }}</p>
-          <h2>{{ '€' + (product.prijs ? product.prijs.toFixed(2) : 'N/A') }}</h2>
+          <h2>{{ '€' + (product.prijs ? product.prijs.toFixed(2) : 'Niet aanwezig') }}</h2>
         </div>
 
         <div class="detail__layout__tekst__buttons">
           <button type="button"><i class="fa-regular fa-heart"></i></button>
           <button type="button"><i class="fa-solid fa-cart-shopping"></i></button>
-          <select name="quantity" class="quantityDropdown">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
+          <select v-if="product.hoeveelheid_voorraad > 0" v-model="quantity" name="quantity" class="quantityDropdown">
+            <option v-for="n in Math.min(product.hoeveelheid_voorraad, 5)" :value="n" :key="n">{{ n }}</option>
           </select>
+          <button v-if="product.hoeveelheid_voorraad > 0" type="button" @click="addToCart">Add to cart</button>
         </div>
 
         <div class="detail__layout__tekst__options">
@@ -59,5 +89,16 @@ export default {
         </div>
       </div>
     </div>
+
+    <!-- Voeg de popup toe -->
+    <PopupComponent
+        v-if="showPopup"
+        :message="popupMessage"
+        :showGoToCart="product.hoeveelheid_voorraad > 0"
+        :showGoToProducts="true"
+        @onClose="closePopup"
+        @goToCart="goToCart"
+        @goToProducts="goToProducts"
+    />
   </div>
 </template>

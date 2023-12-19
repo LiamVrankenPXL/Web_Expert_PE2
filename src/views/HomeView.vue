@@ -45,7 +45,7 @@ export default {
       <button type="button">Shop nu!</button>
     </div>
     <div class="index__header__rechts">
-      <img src="@/assets/images/all_kinds_of_stones.png" alt="mock-up sticker rol">
+      <img src="@/assets/images/all_kinds_of_stones.png" alt="mock-up stones rol">
     </div>
   </div>
 

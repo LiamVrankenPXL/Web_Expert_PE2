@@ -4,6 +4,7 @@ import HomeView from '@/views/HomeView.vue'
 import LoginView from '@/views/LoginView.vue'
 import ProductView from '@/views/ProductView.vue'
 import ProductDetailView from '@/views/ProductDetailView.vue'
+import WinkelmandjeView from '@/views/WinkelmandjeView.vue';
 import PageNotFoundView from '@/views/PageNotFoundView.vue'
 
 const router = createRouter({
@@ -25,6 +26,11 @@ const router = createRouter({
         {
             path: '/login',
             component: LoginView
+        },
+        {
+            path: '/winkelmandje',
+            name: 'winkelmandje',
+            component: WinkelmandjeView,
         },
         {
             path: '/:notFound(.*)',

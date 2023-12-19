@@ -1,17 +1,22 @@
 <script>
+import producten from '../../producten.json';
+
 export default {
   data() {
-    return {
-    }
+    return {};
   },
   props: {
     carouselProducten: Array,
-    currentIndex: Number
+    currentIndex: Number,
   },
   computed: {
+    sortedProducts() {
+      // Sort products based on hoeveelheid_voorraad in descending order
+      return producten.artikelen.slice().sort((a, b) => b.hoeveelheid_voorraad - a.hoeveelheid_voorraad);
+    },
     currentProduct() {
-      return this.carouselProducten[this.currentIndex];
-    }
+      return this.sortedProducts[this.currentIndex];
+    },
   },
   methods: {
     prevProduct() {
@@ -19,11 +24,10 @@ export default {
     },
     nextProduct() {
       this.$emit('nextProduct');
-    }
-  }
+    },
+  },
 };
 </script>
-
 
 <template>
   <div class="index__kijker">
@@ -44,4 +48,3 @@ export default {
     </div>
   </div>
 </template>
-

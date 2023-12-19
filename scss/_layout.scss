@@ -454,6 +454,15 @@
 /*________PRODUCT DETAIL EINDE________*/
 
 
+/*________WINKELMANDJE START________*/
+.shopping__cart {
+  @include flexLayout;
+  flex-direction: column;
+}
+
+
+
+/*________WINKELMANDJE EINDE________*/
 
 
 /*________INDEX START________*/

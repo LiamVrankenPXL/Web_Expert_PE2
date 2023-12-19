@@ -2,7 +2,7 @@
 export default {
   data() {
     return {
-      logoSrcNav: 'src/assets/images/logo.png',
+      logoSrcNav: '/src/assets/images/logo.png',
       logoAltNav: "Logo Visionary_Visuals",
       productNaamNav: "Product",
       homeNaamNav: "Home",

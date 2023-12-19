@@ -8,10 +8,7 @@ export default {
     };
   },
   mounted() {
-    // Gebruik de product ID uit de route params
     const productId = parseInt(this.$route.params.id);
-
-    // Vind het product op basis van de ID
     this.product = producten.artikelen.find(product => product.id === productId);
   },
 };

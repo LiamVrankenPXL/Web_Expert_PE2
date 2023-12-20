@@ -4,20 +4,20 @@ export default {
     message: String,
     showGoToCart: Boolean,
     showGoToProducts: Boolean,
-    onClose: Function,
     onGoToCart: Function,
     onGoToProducts: Function,
   },
   methods: {
     goToCart() {
-      this.onGoToCart();
+      this.$router.push({ name: 'winkelmandje' });
     },
     goToProducts() {
-      this.onGoToProducts();
-    },
-  },
+      this.$router.push({ path: '/products' });
+    }
+  }
 };
 </script>
+
 
 <template>
   <div class="popup">
@@ -29,19 +29,4 @@ export default {
   </div>
 </template>
 
-<style scoped>
-.popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 20px;
-  z-index: 999;
-}
 
-.popup-content {
-  text-align: center;
-}
-</style>

@@ -11,7 +11,6 @@ export default {
 };
 </script>
 
-<!-- ProductCardComponent.vue -->
 <template>
   <div class="card__layout">
     <div v-for="item in products" :key="item.id" class="card">

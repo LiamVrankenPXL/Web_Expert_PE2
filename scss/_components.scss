@@ -3,7 +3,7 @@
 /*_____FONDS/ALGEMEEN START_____*/
 h1, h2, h3 {
   font-family: $font_Oswald;
-  color: $blauw;
+  color: $donker_blauw;
 
 }
 
@@ -95,14 +95,19 @@ body {
     .login__signin__more {
       i {
         font-size: $font_subtitel2;
+        color: $wit;
+        margin: 5px;
       }
     }
 
-    button {
-      @include buttonOpmaak();
+    .login__sumbit {
+      button {
+        @include buttonLayoutGroot();
+        margin-left: 0;
 
-      &:hover {
-        background-color: $donkerder_blauw;
+        &:hover {
+          background-color: $donkerder_blauw;
+        }
       }
     }
   }
@@ -130,7 +135,7 @@ body {
       color: $zwart;
 
       &:hover {
-        background-color: $blauw;
+        background-color: $donkerder_blauw;
       }
     }
   }

@@ -32,14 +32,18 @@ export default {
       this.popupMessage = '';
     },
     goToCart() {
-      // Implementeer navigatie naar winkelmandje
-      console.log('Navigeer naar winkelmandje');
       this.closePopup();
     },
     goToProducts() {
-      // Implementeer navigatie naar productenpagina
-      console.log('Navigeer naar productenpagina');
       this.closePopup();
+    },
+    redirectToLogin() {
+      this.$router.push('/login');
+    },
+  },
+  computed: {
+    loggedInUser() {
+      return this.$root.loggedInUser || null;
     },
   },
   mounted() {
@@ -48,6 +52,10 @@ export default {
   },
 };
 </script>
+
+
+
+
 <template>
   <div v-if="product" class="detail">
     <div class="detail__layout">
@@ -72,7 +80,8 @@ export default {
 
         <div class="detail__layout__tekst__buttons">
           <button type="button"><i class="fa-regular fa-heart"></i></button>
-          <button type="button"><i class="fa-solid fa-cart-shopping"></i></button>
+          <button v-if="loggedInUser" type="button" @click="addToCart">Add to cart</button>
+          <button v-else type="button" @click="redirectToLogin">Log in</button>
           <select v-if="product.hoeveelheid_voorraad > 0" v-model="quantity" name="quantity" class="quantityDropdown">
             <option v-for="n in Math.min(product.hoeveelheid_voorraad, 5)" :value="n" :key="n">{{ n }}</option>
           </select>

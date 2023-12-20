@@ -1,5 +1,11 @@
 <script>
 export default {
+  data() {
+    return {
+      aantalArtikelenInWinkelmandje: 0,
+    };
+  },
+
   computed: {
     winkelmandje() {
       return this.$root.winkelmandje;

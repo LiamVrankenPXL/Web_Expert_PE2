@@ -374,13 +374,75 @@ body {
   margin: 50px 50px;
 
   &__product__sectie {
-    justify-content: center;
     color: $wit;
     margin-right: 50px;
 
-    h2, li {
+    h2 {
       color: $wit;
       margin-bottom: 20px;
+    }
+
+    &__artikelen {
+      display: flex;
+      flex-direction: row;
+      background-color: $blauw;
+      width: 1000px;
+      border-radius: 4px;
+      margin-bottom: 15px;
+
+      img {
+        height: 200px;
+        width: 200px;
+        margin: 20px;
+      }
+
+      .deel__1 {
+        h2 {
+          margin-top: 25px;
+        }
+        p {
+          width: 75%;
+        }
+        button {
+          @include buttonLayoutKlein();
+        }
+        .aftellen {
+          margin: 10px 10px 10px 0;
+        }
+        .optellen {
+          margin: 10px;
+        }
+      }
+
+      .deel__2 {
+        margin: 25px;
+        width: 25%;
+      }
+      .break {
+        border-bottom: $zwart 2px solid;
+      }
+
+      .totaal {
+        margin: 10px;
+      }
+    }
+
+    .product__item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+
+      .product__image {
+        margin-right: 20px;
+      }
+
+      .product__details {
+        flex: 1;
+      }
+
+      .product__price {
+        margin-left: auto;
+      }
     }
   }
 
@@ -388,11 +450,19 @@ body {
   &__product__checkout{
     justify-content: center;
     color: $wit;
-    margin-left: 50px;
 
+
+    .border {
+      background-color: $licht_blauw;
+      padding: 30px;
+      border-radius: 4px;
+    }
     h2 {
       color: $wit;
       margin-bottom: 20px;
+    }
+    li {
+      margin: 10px 10px 10px 0;
     }
 
     button {

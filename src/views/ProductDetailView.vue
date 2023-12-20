@@ -21,6 +21,10 @@ export default {
         quantity: parseInt(this.quantity, 10),
         price: this.product.prijs,
         name: this.product.titel,
+        afbeelding: this.product.afbeelding,
+        omschrijving: this.product.omschrijving,
+        stock: this.product.hoeveelheid_voorraad,
+        btw: this.product.btw_tarief,
       };
 
 

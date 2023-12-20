@@ -170,8 +170,6 @@ body {
   @include buttonLayoutKlein();
   margin: 10px;
 }
-
-
 /*________POP UP EINDE________*/
 
 
@@ -369,6 +367,42 @@ body {
 /*________PRODUCT DETAIL EINDE________*/
 
 
+/*________WINKELMANDJE START________*/
+.winkelmandje {
+  display: flex;
+  justify-content: center;
+  margin: 50px 50px;
+
+  &__product__sectie {
+    justify-content: center;
+    color: $wit;
+    margin-right: 50px;
+
+    h2, li {
+      color: $wit;
+      margin-bottom: 20px;
+    }
+  }
+
+
+  &__product__checkout{
+    justify-content: center;
+    color: $wit;
+    margin-left: 50px;
+
+    h2 {
+      color: $wit;
+      margin-bottom: 20px;
+    }
+
+    button {
+      @include buttonLayoutKlein()
+    }
+  }
+}
+
+
+/*________WINKELMANDJE EINDE________*/
 
 
 /*________INDEX START________*/

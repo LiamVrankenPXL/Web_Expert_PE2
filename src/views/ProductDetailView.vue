@@ -16,12 +16,15 @@ export default {
   },
   methods: {
     addToCart() {
-      console.log('Product toegevoegd aan winkelmandje', {
+      const addedProduct = {
         id: this.product.id,
         quantity: parseInt(this.quantity, 10),
         price: this.product.prijs,
         name: this.product.titel,
-      });
+      };
+
+
+      this.$root.winkelmandje.push(addedProduct);
 
       // Laat de popup zien met het juiste bericht
       this.showPopup = true;

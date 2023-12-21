@@ -7,6 +7,7 @@ import ProductDetailView from '@/views/ProductDetailView.vue'
 import WinkelmandjeView from '@/views/WinkelmandjeView.vue';
 import PageNotFoundView from '@/views/PageNotFoundView.vue'
 import CheckoutView from '@/views/CheckoutView.vue'
+import BevestigingsPaginaView from '@/views/BevestigingsPaginaView.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -37,6 +38,11 @@ const router = createRouter({
             path: '/checkout',
             name: 'checkout',
             component: CheckoutView,
+        },
+        {
+            path: '/bevestiging',
+            name: 'bevestiging',
+            component: BevestigingsPaginaView,
         },
         {
             path: '/:notFound(.*)',

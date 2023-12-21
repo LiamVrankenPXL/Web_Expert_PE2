@@ -76,7 +76,9 @@ export default {
           </div>
         </div>
       </div>
-      <button type="submit">Bevestig Bestelling</button>
+      <router-link to="/bevestiging">
+        <button @click="handleConfirmOrder">Bevestig Bestelling</button>
+      </router-link>
     </form>
 
     <!--    Producten-->

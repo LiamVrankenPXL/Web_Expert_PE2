@@ -12,11 +12,12 @@ export default {
     },
   },
   methods: {
+
     increaseQuantity(product) {
       if (product.stock > product.quantity) {
         product.quantity++;
-        this.updateAantalArtikelen(); // Werk het aantal artikelen bij
-        this.$forceUpdate(); // Force a re-render
+        this.updateAantalArtikelen();
+        this.$forceUpdate();
       } else {
         console.log('Niet genoeg voorraad beschikbaar.');
       }
@@ -24,8 +25,8 @@ export default {
     decreaseQuantity(product) {
       if (product.quantity > 1) {
         product.quantity--;
-        this.updateAantalArtikelen(); // Werk het aantal artikelen bij
-        this.$forceUpdate(); // Force a re-render
+        this.updateAantalArtikelen();
+        this.$forceUpdate();
       }
     },
     updateAantalArtikelen() {
@@ -50,15 +51,12 @@ export default {
       const index = this.winkelmandje.indexOf(product);
       if (index !== -1) {
         this.winkelmandje.splice(index, 1);
-        this.updateAantalArtikelen(); // Werk het aantal artikelen bij
-        this.$forceUpdate(); // Force a re-render
+        this.updateAantalArtikelen();
+        this.$forceUpdate();
       } else {
         console.log('Product not found in winkelmandje.');
       }
     },
-  },
-  watch: {
-    winkelmandje: 'updateAantalArtikelen', // Werk het aantal artikelen bij wanneer het winkelmandje verandert
   },
 };
 </script>
@@ -99,7 +97,9 @@ export default {
           <li>BTW (21%): €{{ calculateBtw().toFixed(2) }}</li>
           <li><strong>Totaal: €{{ calculateTotal().toFixed(2) }}</strong></li>
         </ul>
-        <button @click="handlePayment">Betaal</button>
+        <router-link :to="{ name: 'checkout' }">
+          <button @click="handlePayment">Betaal</button>
+        </router-link>
       </div>
     </div>
   </div>

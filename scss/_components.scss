@@ -475,6 +475,129 @@ body {
 /*________WINKELMANDJE EINDE________*/
 
 
+
+
+
+
+/*________CHECKOUT START________*/
+//top
+h1 {
+  color: $wit;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+//links
+.checkout__view {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  max-width: 600px;
+  margin: 0 auto;
+
+  &__links {
+
+  }
+  h1 {
+    color: $wit;
+    margin: 25px;
+  }
+
+  h2 {
+    margin-bottom: 10px;
+    color: $wit;
+  }
+
+  .flex-input-group {
+    display: flex;
+
+    .input-group {
+      margin-right: 25px;
+    }
+  }
+
+  .input-group {
+    margin-bottom: 30px;
+
+    label {
+      font-size: $font_klein;
+      display: block;
+      margin-bottom: 0.5em;
+    }
+
+    input {
+      font-size: $font_klein;
+      border-radius: 5px;
+      padding: 5px;
+    }
+
+    #nummer {
+      width: 20%;
+    }
+    #postcode {
+      width: 10%;
+    }
+  }
+
+  button {
+    @include buttonLayoutKlein($licht_blauw);
+    margin: 0 auto;
+    color: $donkerder_blauw;
+
+    &:hover {
+      background-color: $blauw;
+    }
+  }
+
+//Rechterkant
+  .winkelmandje__producten__rechts {
+    margin-top: 20px;
+
+    h2 {
+      margin-bottom: 10px;
+      color: $wit;
+    }
+
+    .winkelmandje__item {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+      margin-bottom: 10px;
+
+      &:last-child {
+        border-bottom: 2px solid $wit;
+      }
+
+      img {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+      }
+
+      p {
+        margin: 0;
+      }
+      .product__details {
+        display: flex;
+        flex-direction: column;
+
+        p {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+  .winkelmandje__producten__prijs {
+    margin-top: 40px;
+  }
+}
+
+
+/*________CHECKOUT EINDE________*/
+
+
+
+
 /*________INDEX START________*/
 .index__header {
   &__links {
@@ -569,7 +692,8 @@ body {
 
 
 
-/* contact cards */
+
+/* CONTACT CARTS */
 .index__contact {
   &__rechts {
     h1 {

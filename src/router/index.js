@@ -6,6 +6,7 @@ import ProductView from '@/views/ProductView.vue'
 import ProductDetailView from '@/views/ProductDetailView.vue'
 import WinkelmandjeView from '@/views/WinkelmandjeView.vue';
 import PageNotFoundView from '@/views/PageNotFoundView.vue'
+import CheckoutView from '@/views/CheckoutView.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -31,6 +32,11 @@ const router = createRouter({
             path: '/winkelmandje',
             name: 'winkelmandje',
             component: WinkelmandjeView,
+        },
+        {
+            path: '/checkout',
+            name: 'checkout',
+            component: CheckoutView,
         },
         {
             path: '/:notFound(.*)',

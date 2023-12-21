@@ -13,7 +13,6 @@ export default {
     }
   }
 }
-
 </script>
 
 <template>
@@ -24,7 +23,7 @@ export default {
     </div>
     <div class="footer__section footer__section__products">
       <h2 class="footer__titel">{{ productNaamFooter }}</h2>
-      <p class="footer__tekst">{{  productArtikelFooter }}</p>
+      <router-link :to="{name:'producten'}"><p class="footer__tekst">{{  productArtikelFooter }}</p></router-link>
     </div>
     <div class="footer__section footer__section__contact">
       <h2 class="footer__titel">{{ contactNaamFooter }}</h2>

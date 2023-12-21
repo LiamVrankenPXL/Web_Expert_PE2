@@ -1,5 +1,10 @@
 <script>
 export default {
+  data() {
+    return {
+      bekijkMeer: 'Bekijk meer'
+    };
+  },
   props: {
     products: Array,
   },
@@ -21,7 +26,7 @@ export default {
       </div>
       <div class="card__details">
         <p class="card__price">{{ '€' + item.prijs.toFixed(2) }}</p>
-        <button @click="viewProductDetail(item.id)" class="card__button">Bekijk meer</button>
+        <button @click="viewProductDetail(item.id)" class="card__button">{{ bekijkMeer }}</button>
       </div>
     </div>
   </div>

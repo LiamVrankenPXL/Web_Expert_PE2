@@ -15,7 +15,7 @@ export default {
   <!--navigatie-->
   <nav class="main-nav">
     <div class="brand">
-      <img :src="logoSrcNav" :alt="logoAltNav">
+      <router-link to="/"><img :src="logoSrcNav" :alt="logoAltNav"></router-link>
       <i class="fas fa-bars toggle-icon"></i>
     </div>
     <router-link to="/products" class="nav-item router-link-active">{{ productNaamNav }}</router-link>

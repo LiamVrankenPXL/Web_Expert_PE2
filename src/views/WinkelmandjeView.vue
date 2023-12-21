@@ -3,6 +3,17 @@ export default {
   data() {
     return {
       aantalArtikelenInWinkelmandje: 0,
+      titel: 'Winkelmandje',
+      winkelmandjeLeegTekst: 'Geen artikelen in het winkelmandje',
+      prijsEuroTeken: '€ ',
+      btwTekst: 'Btw: ',
+      maal: 'x ',
+      totaalTekst: 'Totaal: € ',
+      SubtitelBetalen: 'Betalingen Totaal',
+      subTotaal: 'Subtotaal: € ',
+      btw: 'BTW (21%): € ',
+      totaalPrijs: 'Totaal: € ',
+      ButtonBetaal: 'Betaal',
     };
   },
 
@@ -65,8 +76,8 @@ export default {
 <template>
   <div class="winkelmandje">
     <div class="winkelmandje__product__sectie">
-      <h2>Winkelmandje</h2>
-      <p v-if="winkelmandje.length === 0">Geen artikelen in het winkelmandje</p>
+      <h1>{{ titel }}</h1>
+      <p v-if="winkelmandje.length === 0">{{ winkelmandjeLeegTekst }}</p>
       <div v-for="(product, index) in winkelmandje" :key="index" class="winkelmandje__product__sectie__artikelen">
         <img :src="product.afbeelding" :alt="product.name">
         <div class="deel__1">
@@ -80,25 +91,25 @@ export default {
           </button>
         </div>
         <div class="deel__2">
-          <p>€{{ product.price.toFixed(2) }}</p>
-          <p>btw: {{ product.btw }}</p>
-          <p>x {{ product.quantity }}</p>
+          <p>{{ prijsEuroTeken }}{{ product.price.toFixed(2) }}</p>
+          <p>{{ btwTekst }} {{ product.btw }}</p>
+          <p>{{ maal }} {{ product.quantity }}</p>
           <p class="break"></p>
-          <p class="totaal" ref="totaalPrijs">Totaal: €{{ ((product.price * product.quantity) + ((product.price * product.quantity) * (product.btw / 100))).toFixed(2) }}</p>
+          <p class="totaal" ref="totaalPrijs">{{ totaalTekst }}{{ ((product.price * product.quantity) + ((product.price * product.quantity) * (product.btw / 100))).toFixed(2) }}</p>
         </div>
       </div>
     </div>
 
     <div class="winkelmandje__product__checkout">
       <div class="border">
-        <h2>Betalingen Totaal</h2>
+        <h2>{{ SubtitelBetalen }}</h2>
         <ul>
-          <li>Subtotaal: €{{ calculateSubtotal().toFixed(2) }}</li>
-          <li>BTW (21%): €{{ calculateBtw().toFixed(2) }}</li>
-          <li><strong>Totaal: €{{ calculateTotal().toFixed(2) }}</strong></li>
+          <li>{{ subTotaal }} {{ calculateSubtotal().toFixed(2) }}</li>
+          <li>{{ btw }} {{ calculateBtw().toFixed(2) }}</li>
+          <li><strong>{{ totaalPrijs }} {{ calculateTotal().toFixed(2) }}</strong></li>
         </ul>
         <router-link :to="{ name: 'checkout' }">
-          <button @click="handlePayment">Betaal</button>
+          <button @click="handlePayment">{{ ButtonBetaal }}</button>
         </router-link>
       </div>
     </div>

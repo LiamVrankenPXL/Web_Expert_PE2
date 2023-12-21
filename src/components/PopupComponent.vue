@@ -1,5 +1,11 @@
 <script>
 export default {
+  data() {
+    return {
+      naarWinkelmandje: 'Naar winkelmandje',
+      naarProducten: 'Terug naar producten'
+    };
+  },
   props: {
     message: String,
     showGoToCart: Boolean,
@@ -23,8 +29,8 @@ export default {
   <div class="popup">
     <div class="popup-content">
       <p>{{ message }}</p>
-      <button @click="goToCart" v-if="showGoToCart">Naar winkelmandje</button>
-      <button @click="goToProducts" v-if="showGoToProducts">Terug naar producten</button>
+      <button @click="goToCart" v-if="showGoToCart">{{ naarWinkelmandje }}</button>
+      <button @click="goToProducts" v-if="showGoToProducts">{{ naarProducten }}</button>
     </div>
   </div>
 </template>

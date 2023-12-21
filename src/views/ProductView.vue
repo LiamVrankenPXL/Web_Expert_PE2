@@ -10,6 +10,11 @@ export default {
       zoektekst: '',
       itemsPerPage: 8,
       currentPage: 1,
+      titel: 'Kristallen shop',
+      HoofdTekst: 'Onze winkel heeft een variatie aan verschillende soorten kristallen. Voor iedereen zit er wel een steentje tussen',
+      buttonFilter1: 'Dure producten',
+      buttonFilter2: 'Goedkopere producten',
+      buttonFilter3: 'Gemiddelde producten',
     };
   },
   components: {
@@ -30,13 +35,13 @@ export default {
     },
 
     dureProducts() {
-      return this.producten.artikelen.filter(product => product.prijs > 20);
+      return this.producten.artikelen.filter(product => product.prijs > 23);
     },
     goedkopeProducts() {
-      return this.producten.artikelen.filter(product => product.prijs < 20);
+      return this.producten.artikelen.filter(product => product.prijs < 17);
     },
     gemiddeldeProducts() {
-      return this.producten.artikelen.filter(product => product.prijs >= 15 && product.prijs <= 25);
+      return this.producten.artikelen.filter(product => product.prijs >= 17 && product.prijs <= 23);
     },
   },
 
@@ -67,8 +72,8 @@ export default {
   <body  id="achtergrond2">
     <div class="product__header">
       <div class="product__top">
-        <h1>Kristallen shop</h1>
-        <p>Onze winkel heeft een variatie aan verschillende soorten kristallen. Voor iedereen zit er wel een steentje tussen.</p>
+        <h1>{{ titel }}</h1>
+        <p>{{ HoofdTekst }}</p>
       </div>
     </div>
 
@@ -81,9 +86,9 @@ export default {
         </div>
         <!-- filteropties -->
         <div class="product__filter">
-          <span class="filter-option" @click="filteredProducts = dureProducts">Dure producten</span>
-          <span class="filter-option" @click="filteredProducts = goedkopeProducts">Goedkope producten</span>
-          <span class="filter-option" @click="filteredProducts = gemiddeldeProducts">Gemiddelde producten</span>
+          <span class="filter-option" @click="filteredProducts = dureProducts">{{ buttonFilter1 }}</span>
+          <span class="filter-option" @click="filteredProducts = goedkopeProducts">{{ buttonFilter2 }}</span>
+          <span class="filter-option" @click="filteredProducts = gemiddeldeProducts">{{ buttonFilter3 }}</span>
         </div>
       </div>
     </div>

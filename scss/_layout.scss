@@ -320,6 +320,10 @@
   justify-content: center;
   align-items: center;
 
+  h1 {
+    justify-content: start;
+  }
+
   &__layout {
     display: flex;
     width: 65%;
@@ -539,12 +543,13 @@
     img {
       margin-right: 50px;
       width: 100%;
-      height: 450px;  // Vaste hoogte voor de afbeelding
-      object-fit: contain;  // Behoud de aspect ratio en bedek volledig
+      height: 450px;
+      object-fit: contain;
     }
 
     button {
       @include buttonLayoutKlein;
+      margin: 10px;
     }
   }
 
@@ -553,6 +558,7 @@
 
     h1 {
       margin-bottom: 20px;
+      justify-content: start;
     }
 
     button {
@@ -568,11 +574,11 @@
 
     button {
       @include buttonLayoutKleinGsm;
-      margin-top: 20px;  // Aangepaste marge voor de knop op kleinere schermen
+      margin-top: 20px;
     }
 
     img {
-      width: 100%;  // Standaard breedte voor de afbeelding op kleinere schermen
+      width: 100%;
       height: auto;
     }
   }
@@ -687,6 +693,7 @@
 
     h1 {
       margin-bottom: 20px;
+      justify-content: start;
     }
 
     button {

@@ -2,11 +2,22 @@
 export default {
   data() {
     return {
+      titelLogIn: 'Log in bij lv Visials',
+      TitelSignUp: 'Hallo daar',
+      SignUpTekst: 'Heb je nog geen account? Maak er dan nu één.',
+      email: 'Email adres',
+      wachtwoord: 'Wachtwoord',
+      aangemeldBlijven: 'Aangemeld blijven?',
+      wwVergeten: 'Wachtwoord vergeten?',
+      buttonLogIn: 'Log in',
+      buttonSignUp: 'Sign up',
+      keuzeAanmeldenTekst: 'Of aanmelden met:',
+
       users: [
         { username: 'voorbeeld@info.com', password: 'wachtwoord123', address: 'Straat 123, Stad' },
-        // Voeg indien nodig meer gebruikers toe
       ],
       loggedInUser: null,
+
     };
   },
   methods: {
@@ -36,31 +47,29 @@ export default {
     <div class="login">
       <div class="login__layout">
         <div class="login__links">
-          <h1>Log in bij lv Visials</h1>
-
-          <!--labels -->
+          <h1>{{ titelLogIn }}</h1>
           <form class="logvenin__geges" @submit.prevent="login">
             <!--email met placeholder-->
-            <label class="login__gegevens__adres__tekst" for="mailadres">Email adres</label>
+            <label class="login__gegevens__adres__tekst" for="mailadres">{{ email }}</label>
             <input ref="mailadres" class="login__gegevens__adres__kader" type="email" id="mailadres" name="mailadres" required minlength="2" maxlength="100" placeholder="Example.info@gmail.com"><br><br>
 
             <!--wachtwoord-->
-            <label class="login__gegevens__wachtwoord__tekst" for="wachtwoord">Wachtwoord</label>
+            <label class="login__gegevens__wachtwoord__tekst" for="wachtwoord">{{ wachtwoord }}</label>
             <input ref="wachtwoord" class="login__gegevens__wachtwoord__kader" type="password" id="wachtwoord" name="Wachtwoord" required placeholder="Wachtwoord"><br><br>
 
             <div class="login__radio__forgot">
               <input type="radio" name="radiobuttons" id="radio1" value="radio1">
-              <label for="radio1">Aangemeld blijven?</label>
-              <a href="#">Wachtwoord vergeten?</a>
+              <label for="radio1">{{ aangemeldBlijven }}</label>
+              <a href="#">{{ wwVergeten }}</a>
             </div>
 
             <!--verzenden-->
             <div class="login__sumbit">
-              <button type="submit">Log in</button>
+              <button type="submit">{{ buttonLogIn }}</button>
             </div>
 
             <div class="login__signin__more">
-              <p>Of aanmelden met:</p>
+              <p>{{ keuzeAanmeldenTekst }}</p>
               <a><i class="fa-brands fa-google"></i></a>
               <a><i class="fa-brands fa-facebook"></i></a>
             </div>
@@ -68,11 +77,11 @@ export default {
         </div>
 
         <div class="signin__rechts">
-          <h1>Hallo daar!</h1>
-          <p>Heb je nog geen account? Maak er dan nu één</p>
+          <h1>{{ TitelSignUp }}</h1>
+          <p>{{ SignUpTekst }}</p>
 
           <div class="signin__sumbit">
-            <button type="submit">Log in</button>
+            <button type="submit">{{ buttonSignUp }}</button>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@
   "artikelen": [
     {
       "id": 1,
-      "titel": "amethyst",
+      "titel": "Amethyst",
       "omschrijving": "Prachtige amethyststeen, bekend om zijn kalmerende en beschermende eigenschappen. Perfect voor spirituele groei en balans.",
       "afbeelding": "/src/assets/images/product__1.webp",
       "prijs": 12.99,
@@ -12,7 +12,7 @@
     },
     {
       "id": 2,
-      "titel": "bergkristal",
+      "titel": "Bergkristal",
       "omschrijving": "Een heldere bergkristalsteen, symbool van zuiverheid en energie. Brengt positieve vibes en helderheid in elke ruimte.",
       "afbeelding": "/src/assets/images/product__2.webp",
       "prijs": 15.99,
@@ -22,7 +22,7 @@
     },
     {
       "id": 3,
-      "titel": "lapis lazuli",
+      "titel": "Lapis lazuli",
       "omschrijving": "Diepblauwe lapis lazuli, bekend om zijn spirituele eigenschappen en helende krachten. Een symbool van wijsheid en waarheid.",
       "afbeelding": "/src/assets/images/product__3.png",
       "prijs": 18.99,
@@ -42,7 +42,7 @@
     },
     {
       "id": 5,
-      "titel": "rozenkwarts",
+      "titel": "Rozenkwarts",
       "omschrijving": "Liefdevolle rozenkwartssteen, symbool van liefde en harmonie. Brengt zachtheid en helende energie in je leven.",
       "afbeelding": "/src/assets/images/product__5.png",
       "prijs": 16.99,
@@ -52,7 +52,7 @@
     },
     {
       "id": 6,
-      "titel": "jade",
+      "titel": "Jade",
       "omschrijving": "Groene jade, een symbool van welvaart en geluk. Brengt positieve energie en balans in je leven.",
       "afbeelding": "/src/assets/images/product__6.webp",
       "prijs": 20.99,
@@ -62,7 +62,7 @@
     },
     {
       "id": 7,
-      "titel": "sodaliet",
+      "titel": "Sodaliet",
       "omschrijving": "Diepblauwe sodalietsteen, bekend om zijn kalmerende en harmoniserende eigenschappen. Stimuleert intuïtie en zelfvertrouwen.",
       "afbeelding": "/src/assets/images/product__7.webp",
       "prijs": 17.99,
@@ -72,7 +72,7 @@
     },
     {
       "id": 8,
-      "titel": "onyx",
+      "titel": "Onyx",
       "omschrijving": "Krachtige onyxsteen, bekend om zijn beschermende eigenschappen en het absorberen van negatieve energieën. Brengt helderheid en focus.",
       "afbeelding": "/src/assets/images/product__8.webp",
       "prijs": 22.99,
@@ -82,7 +82,7 @@
     },
     {
       "id": 9,
-      "titel": "citrien",
+      "titel": "Citrien",
       "omschrijving": "Stralende citriensteen, symbool van vreugde en overvloed. Brengt positiviteit en energie in je leven.",
       "afbeelding": "/src/assets/images/product__9.webp",
       "prijs": 19.99,
@@ -92,7 +92,7 @@
     },
     {
       "id": 10,
-      "titel": "aventurijn",
+      "titel": "Aventurijn",
       "omschrijving": "Groene aventurijnsteen, bekend om zijn helende eigenschappen en het aantrekken van voorspoed. Brengt geluk en welzijn.",
       "afbeelding": "/src/assets/images/product__10.png",
       "prijs": 14.99,
@@ -132,7 +132,7 @@
     },
     {
       "id": 14,
-      "titel": "carneool",
+      "titel": "Carneool",
       "omschrijving": "Dieprode carneoolsteen, symbool van moed en passie. Stimuleert creativiteit en vitaliteit.",
       "afbeelding": "/src/assets/images/product__14.webp",
       "prijs": 18.99,
@@ -142,7 +142,7 @@
     },
     {
       "id": 15,
-      "titel": "agaat",
+      "titel": "Agaat",
       "omschrijving": "Prachtige agaatsteen, bekend om zijn balancerende eigenschappen en het bevorderen van innerlijke rust.",
       "afbeelding": "/src/assets/images/product__15.webp",
       "prijs": 21.99,

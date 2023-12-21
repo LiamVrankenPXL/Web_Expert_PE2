@@ -9,6 +9,12 @@ export default {
       quantity: 1,
       showPopup: false,
       popupMessage: '',
+      reviews: '(12 reviews)',
+      buttonAddToCard: 'Add to cart',
+      buttonLogIn: 'Log in',
+      Subtitel1: 'About',
+      Subtitel2: 'Specs',
+      Subtitel3: 'Reviews',
     };
   },
   components: {
@@ -27,10 +33,7 @@ export default {
         btw: this.product.btw_tarief,
       };
 
-
       this.$root.winkelmandje.push(addedProduct);
-
-      // Laat de popup zien met het juiste bericht
       this.showPopup = true;
       this.popupMessage = `Product "${this.product.titel}" is toegevoegd aan je winkelmandje.`;
     },
@@ -76,7 +79,7 @@ export default {
           <i class="fa-solid fa-star"></i>
           <i class="fa-solid fa-star"></i>
           <i class="fa-solid fa-star"></i>
-          <p>(12 reviews)</p>
+          <p>{{ reviews }}</p>
         </div>
         <div class="detail__layout__tekst__info">
           <h1>{{ product.titel }}</h1>
@@ -87,21 +90,21 @@ export default {
 
         <div class="detail__layout__tekst__buttons">
           <button type="button"><i class="fa-regular fa-heart"></i></button>
-          <button v-if="loggedInUser" type="button" @click="addToCart">Add to cart</button>
-          <button v-else type="button" @click="redirectToLogin">Log in</button>
+          <button v-if="loggedInUser" type="button" @click="addToCart">{{ buttonAddToCard }}</button>
+          <button v-else type="button" @click="redirectToLogin">{{ buttonLogIn }}</button>
           <select v-if="product.hoeveelheid_voorraad > 0" v-model="quantity" name="quantity" class="quantityDropdown">
             <option v-for="n in Math.min(product.hoeveelheid_voorraad, 5)" :value="n" :key="n">{{ n }}</option>
           </select>
-          <button v-if="product.hoeveelheid_voorraad > 0" type="button" @click="addToCart">Add to cart</button>
+          <button v-if="product.hoeveelheid_voorraad > 0" type="button" @click="addToCart">{{ buttonAddToCard }}</button>
         </div>
 
         <div class="detail__layout__tekst__options">
-          <p>About</p>
-          <p>Specs</p>
-          <p>Reviews</p>
+          <p>{{ Subtitel1 }}</p>
+          <p>{{ Subtitel2 }}</p>
+          <p>{{ Subtitel3 }}</p>
         </div>
         <div class="detail__layout__tekst__About">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid at consequatur eius ex, facere facilis, incidunt inventore laudantium libero, nam perspiciatis quam quod ratione repellat similique. Accusamus aut dolores suscipit.</p>
+          <p>{{ product.omschrijving }}</p>
         </div>
       </div>
     </div>

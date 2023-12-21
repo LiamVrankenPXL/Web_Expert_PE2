@@ -13,3 +13,33 @@ export const useWinkelmandje = defineStore('winkelmandje', {
         },
     },
 });
+
+
+
+
+
+export const useGebruikers = defineStore('gebruikers', {
+    state: () => ({
+        users: [
+            { id: 1, username: 'voorbeeld@info.com', password: '123', address: 'Straat 123, Stad' },
+        ],
+        loggedInUser: null,
+    }),
+    actions: {
+        login(username, password) {
+            const user = this.users.find(u => u.username === username && u.password === password);
+            if (user) {
+                this.loggedInUser = user;
+                console.log(`Aangemeld als ${user.username}`);
+                return true;
+            } else {
+                console.log('Onjuiste gebruikersnaam of wachtwoord');
+                return false;
+            }
+        },
+        logout() {
+            console.log(`Afgemeld: ${this.loggedInUser ? this.loggedInUser.username : 'Geen gebruiker aangemeld'}`);
+            this.loggedInUser = null;
+        },
+    },
+});

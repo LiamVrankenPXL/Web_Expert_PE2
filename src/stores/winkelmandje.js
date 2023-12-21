@@ -21,7 +21,9 @@ export const useWinkelmandje = defineStore('winkelmandje', {
 export const useGebruikers = defineStore('gebruikers', {
     state: () => ({
         users: [
-            { id: 1, username: 'voorbeeld@info.com', password: '123', address: 'Straat 123, Stad' },
+            { id: 1, username: 'voorbeeld@info.com', password: '123', name: 'John Doe', street: 'Main Street', streetNumber: '123', city: 'Cityville', postcode: '12345' },
+            { id: 2, username: 'ander@example.com', password: '456', name: 'Jane Doe', street: 'Second Street', streetNumber: '456', city: 'Townsville', postcode: '67890' },
+            { id: 3, username: 'nogeen@example.com', password: '789', name: 'Bob Johnson', street: 'Third Street', streetNumber: '789', city: 'Villagetown', postcode: '54321' },
         ],
         loggedInUser: null,
     }),

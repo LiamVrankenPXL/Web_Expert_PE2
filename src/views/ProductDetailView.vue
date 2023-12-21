@@ -1,6 +1,7 @@
 <script>
 import producten from '../../producten.json';
 import PopupComponent from "@/components/PopupComponent.vue";
+import { useGebruikers } from '@/stores/winkelmandje'
 
 export default {
   data() {
@@ -15,6 +16,7 @@ export default {
       Subtitel1: 'About',
       Subtitel2: 'Specs',
       Subtitel3: 'Reviews',
+      gebruikersStore: useGebruikers(),
     };
   },
   components: {
@@ -22,21 +24,28 @@ export default {
   },
   methods: {
     addToCart() {
-      const addedProduct = {
-        id: this.product.id,
-        quantity: parseInt(this.quantity, 10),
-        price: this.product.prijs,
-        name: this.product.titel,
-        afbeelding: this.product.afbeelding,
-        omschrijving: this.product.omschrijving,
-        stock: this.product.hoeveelheid_voorraad,
-        btw: this.product.btw_tarief,
-      };
+      if (this.gebruikersStore.loggedInUser) {
+        // Voeg het product toe aan het winkelmandje
+        const addedProduct = {
+          id: this.product.id,
+          quantity: parseInt(this.quantity, 10),
+          price: this.product.prijs,
+          name: this.product.titel,
+          afbeelding: this.product.afbeelding,
+          omschrijving: this.product.omschrijving,
+          stock: this.product.hoeveelheid_voorraad,
+          btw: this.product.btw_tarief,
+        };
 
-      this.$root.winkelmandje.push(addedProduct);
-      this.showPopup = true;
-      this.popupMessage = `Product "${this.product.titel}" is toegevoegd aan je winkelmandje.`;
+        this.$root.winkelmandje.push(addedProduct);
+        this.showPopup = true;
+        this.popupMessage = `Product "${this.product.titel}" is toegevoegd aan je winkelmandje.`;
+      } else {
+        // Navigeer naar de inlogpagina
+        this.$router.push('/login'); // pas het pad aan indien nodig
+      }
     },
+
     closePopup() {
       this.showPopup = false;
       this.popupMessage = '';
@@ -47,23 +56,21 @@ export default {
     goToProducts() {
       this.closePopup();
     },
-    redirectToLogin() {
-      this.$router.push('/login');
-    },
   },
   computed: {
-    loggedInUser() {
-      return this.$root.loggedInUser || null;
+    buttonText() {
+      return this.product.hoeveelheid_voorraad > 0 ?
+          (this.gebruikersStore.loggedInUser ? this.buttonAddToCard : this.buttonLogIn) : '';
     },
   },
+
+
   mounted() {
     const productId = parseInt(this.$route.params.id);
     this.product = producten.artikelen.find(product => product.id === productId);
   },
 };
 </script>
-
-
 
 
 <template>
@@ -90,12 +97,10 @@ export default {
 
         <div class="detail__layout__tekst__buttons">
           <button type="button"><i class="fa-regular fa-heart"></i></button>
-          <button v-if="loggedInUser" type="button" @click="addToCart">{{ buttonAddToCard }}</button>
-          <button v-else type="button" @click="redirectToLogin">{{ buttonLogIn }}</button>
           <select v-if="product.hoeveelheid_voorraad > 0" v-model="quantity" name="quantity" class="quantityDropdown">
             <option v-for="n in Math.min(product.hoeveelheid_voorraad, 5)" :value="n" :key="n">{{ n }}</option>
           </select>
-          <button v-if="product.hoeveelheid_voorraad > 0" type="button" @click="addToCart">{{ buttonAddToCard }}</button>
+          <button v-if="product.hoeveelheid_voorraad > 0" type="button" @click="addToCart">{{ buttonText }}</button>
         </div>
 
         <div class="detail__layout__tekst__options">

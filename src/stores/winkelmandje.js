@@ -19,9 +19,9 @@ export const useWinkelmandje = defineStore('winkelmandje', {
 export const useGebruikers = defineStore('gebruikers', {
     state: () => ({
         users: [
-            { id: 1, username: 'janedoe@gmail.com', password: '123', name: 'Ianthe de marie', street: 'Slagerstraat', streetNumber: '45', city: 'Hasselt', postcode: '3500' },
-            { id: 2, username: 'johnsmith@yahoo.com', password: '456', name: 'Leen Hertogs', street: 'Witte torenwallstraat', streetNumber: '78', city: 'Bree', postcode: '3500' },
-            { id: 3, username: 'bobjohnson@hotmail.com', password: '789', name: 'Robbe Brebels', street: 'Wakkerstraat', streetNumber: '910', city: 'Hasselt', postcode: '3960' },
+            { id: 1, username: 'ianthedemarie@gmail.com', password: '123', name: 'Ianthe de marie', street: 'Slagerstraat', streetNumber: '45', city: 'Hasselt', postcode: '3500' },
+            { id: 2, username: 'leenhertogsh@yahoo.com', password: '456', name: 'Leen Hertogs', street: 'Witte torenwallstraat', streetNumber: '78', city: 'Bree', postcode: '3500' },
+            { id: 3, username: 'robbebrebels@hotmail.com', password: '789', name: 'Robbe Brebels', street: 'Wakkerstraat', streetNumber: '910', city: 'Hasselt', postcode: '3960' },
         ],
         loggedInUser: null,
     }),

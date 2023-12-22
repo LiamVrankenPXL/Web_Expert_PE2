@@ -1,7 +1,7 @@
 @use 'base' as *;
 
 /*-------- NAV START --------*/
-.main-nav {
+.main__nav {
   display: flex;
   flex-direction: column;
   margin: 10px;
@@ -18,12 +18,12 @@
     }
   }
 
-  .nav-item {
+  .nav__item {
     padding: 10px;
     display: none;
   }
 
-  .nav-item.show {
+  .nav__item.show {
     display: block;
   }
 
@@ -34,15 +34,15 @@
       display: block;
     }
 
-    .nav-item:nth-child(2) {
+    .nav__item:nth-child(2) {
       margin-left: auto;
     }
 
-    .nav-item:nth-child(4) {
+    .nav__item:nth-child(4) {
       margin-left: 20px;
     }
 
-    .nav-item {
+    .nav__item {
       display: block;
     }
 
@@ -205,7 +205,7 @@
     @include flexLayout;
     justify-content: center;
 
-    .filter-option {
+    .filter__option {
       padding: 8px 16px;
       margin: 0 10px;
       cursor: pointer;
@@ -392,7 +392,7 @@
 
     &__tekst {
       width: 70%;
-      align-self: flex-start; /* Aangepast naar flex-start */
+      align-self: flex-start;
       margin-top: 20px;
       flex: 1;
 

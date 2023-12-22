@@ -16,7 +16,6 @@ export default {
 </script>
 
 <template>
-  <!--footer-->
   <div class="footer">
     <div class="footer__section footer__section__links">
       <img :src="lvLogoExtendedFooter" :alt="lvLogoExtendedAltFooter">

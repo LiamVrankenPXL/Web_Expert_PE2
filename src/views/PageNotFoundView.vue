@@ -10,6 +10,6 @@ export default {
 
 <template>
   <section class="container">
-    <h1 class="main-heading">{{ titel }}</h1>
+    <h1 class="main__heading">{{ titel }}</h1>
   </section>
 </template>

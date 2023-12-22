@@ -56,11 +56,11 @@ body::-webkit-scrollbar-thumb {
 
 
 /*________NAV START________*/
-.main-nav {
+.main__nav {
   background-color: transparent;
   color: $wit;
 
-  .nav-item {
+  .nav__item {
     color: $wit;
   }
   .brand {
@@ -70,7 +70,7 @@ body::-webkit-scrollbar-thumb {
   }
 
   @media (min-width: 1025px) {
-    .nav-item {
+    .nav__item {
       i {
         font-size: $font_subtitel;
       }
@@ -211,16 +211,16 @@ body::-webkit-scrollbar-thumb {
   z-index: 999;
 }
 
-.popup-content {
+.popup__content {
   text-align: center;
 }
 
-.popup-content p {
+.popup__content p {
   color: #0a333e;
   margin: 10px;
 }
 
-.popup-content button {
+.popup__content button {
   @include buttonLayoutKlein();
   margin: 10px;
 }
@@ -263,7 +263,7 @@ body::-webkit-scrollbar-thumb {
   }
 }
 .product__filter {
-  .filter-option {
+  .filter__option {
     transition: background-color 0.3s;
     background-color: $blauw;
     border-radius: 4px;
@@ -335,22 +335,22 @@ body::-webkit-scrollbar-thumb {
 
 
 /*________BEVESTIGINGSPAGINA START________*/
-.bevestigings-pagina {
+.bevestigings__pagina {
   padding: 20px;
 }
 
-.bestelde-artikelen {
+.bestelde__artikelen {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.besteld-artikel {
+.besteld__artikel {
   display: flex;
   margin: 25px;
 }
 
-.besteld-artikel img {
+.besteld__artikel img {
   width: 100px;
   height: 100px;
   margin-right: 10px;
@@ -362,7 +362,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 
-.volledige-totale-prijs {
+.volledige__totale__prijs {
   margin-top: 20px;
 }
 
@@ -600,15 +600,15 @@ h1 {
     color: $wit;
   }
 
-  .flex-input-group {
+  .flex__input__group {
     display: flex;
 
-    .input-group {
+    .input__group {
       margin-right: 25px;
     }
   }
 
-  .input-group {
+  .input__group {
     margin-bottom: 30px;
 
     label {

@@ -25,7 +25,6 @@ export default {
   methods: {
     addToCart() {
       if (this.gebruikersStore.loggedInUser) {
-        // Voeg het product toe aan het winkelmandje
         const addedProduct = {
           id: this.product.id,
           quantity: parseInt(this.quantity, 10),
@@ -41,8 +40,7 @@ export default {
         this.showPopup = true;
         this.popupMessage = `Product "${this.product.titel}" is toegevoegd aan je winkelmandje.`;
       } else {
-        // Navigeer naar de inlogpagina
-        this.$router.push('/login'); // pas het pad aan indien nodig
+        this.$router.push('/login');
       }
     },
 

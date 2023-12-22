@@ -85,44 +85,44 @@ export default {
   <div class="checkout__view">
     <form class="checkout__view__links">
       <h2>{{ Subtitel }}</h2>
-      <div class="input-group">
+      <div class="input__group">
         <label for="naam">{{ naamLabel }}</label>
         <input type="text" id="naam" v-model="naam" required />
       </div>
 
-      <div class="flex-input-group">
-        <div class="input-group">
+      <div class="flex__input__group">
+        <div class="input__group">
           <label for="straat">{{ straatLabel }}</label>
           <input type="text" id="straat" v-model="straat" />
         </div>
-        <div class="input-group small">
+        <div class="input__group small">
           <label for="nummer">{{ nummerLabel }}</label>
           <input type="text" id="nummer" v-model="nummer" required />
         </div>
       </div>
 
-      <div class="input-group">
+      <div class="input__group">
         <label for="stad">{{ stadLabel }}</label>
         <input type="text" id="stad" v-model="stad" required />
       </div>
 
-      <div class="input-group">
+      <div class="input__group">
         <label for="postcode">{{ postcodeLabel }}</label>
         <input type="text" id="postcode" v-model="postcode" required />
       </div>
 
-      <div class="input-group">
+      <div class="input__group">
         <label for="facturatieCheckbox">{{ facturatieVerschillendLabel }}</label>
         <input type="checkbox" id="facturatieCheckbox" v-model="facturatieVerschillend" />
       </div>
 
-      <div v-if="facturatieVerschillend" class="facturatie-form">
-        <div class="flex-input-group">
-          <div class="input-group">
+      <div v-if="facturatieVerschillend" class="facturatie__form">
+        <div class="flex__input__group">
+          <div class="input__group">
             <label for="facturatieStraat">{{ FacturatieStraatLabel }}</label>
             <input type="text" id="facturatieStraat" v-model="facturatieStraat" required />
           </div>
-          <div class="input-group small">
+          <div class="input__group small">
             <label for="facturatieNummer">{{ FacturatieNummerLabel }}</label>
             <input type="text" id="facturatieNummer" v-model="facturatieNummer" required />
           </div>
@@ -133,7 +133,6 @@ export default {
       </router-link>
     </form>
 
-    <!--    Producten-->
     <!-- Producten -->
     <div class="winkelmandje__producten__rechts">
       <h2>{{ Subtitel2 }}</h2>

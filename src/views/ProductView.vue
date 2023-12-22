@@ -83,9 +83,9 @@ export default {
       </div>
       <!-- filteropties -->
       <div class="product__filter">
-        <span class="filter-option" @click="filteredProducts = dureProducts">{{ buttonFilter1 }}</span>
-        <span class="filter-option" @click="filteredProducts = goedkopeProducts">{{ buttonFilter2 }}</span>
-        <span class="filter-option" @click="filteredProducts = gemiddeldeProducts">{{ buttonFilter3 }}</span>
+        <span class="filter__option" @click="filteredProducts = dureProducts">{{ buttonFilter1 }}</span>
+        <span class="filter__option" @click="filteredProducts = goedkopeProducts">{{ buttonFilter2 }}</span>
+        <span class="filter__option" @click="filteredProducts = gemiddeldeProducts">{{ buttonFilter3 }}</span>
       </div>
     </div>
   </div>

@@ -27,7 +27,7 @@ export default {
 
 <template>
   <div class="popup">
-    <div class="popup-content">
+    <div class="popup__content">
       <p>{{ message }}</p>
       <button @click="goToCart" v-if="showGoToCart">{{ naarWinkelmandje }}</button>
       <button @click="goToProducts" v-if="showGoToProducts">{{ naarProducten }}</button>

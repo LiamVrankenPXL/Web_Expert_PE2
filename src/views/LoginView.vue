@@ -38,6 +38,9 @@ export default {
     redirectToLogin() {
       this.$router.push('/login');
     },
+    redirectToSignUp() {
+      this.$router.push('/Signup');
+    },
   },
 };
 </script>
@@ -48,7 +51,7 @@ export default {
     <div class="login__layout">
       <div class="login__links">
         <h1>{{ titelLogIn }}</h1>
-        <form class="logvenin__geges" @submit.prevent="login">
+        <form class="login__gegevens" @submit.prevent="login">
           <!--email met placeholder-->
           <label class="login__gegevens__adres__tekst" for="mailadres">{{ email }}</label>
           <input ref="mailadres" class="login__gegevens__adres__kader" type="email" id="mailadres" name="mailadres" required minlength="2" maxlength="100" placeholder="Example.info@gmail.com"><br><br>
@@ -82,7 +85,7 @@ export default {
         <p>{{ SignUpTekst }}</p>
 
         <div class="signin__sumbit">
-          <button type="submit">{{ buttonSignUp }}</button>
+          <button @click="redirectToSignUp" type="submit">{{ buttonSignUp }}</button>
         </div>
       </div>
     </div>

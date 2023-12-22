@@ -16,8 +16,6 @@ export const useWinkelmandje = defineStore('winkelmandje', {
 
 
 
-
-
 export const useGebruikers = defineStore('gebruikers', {
     state: () => ({
         users: [
@@ -28,6 +26,10 @@ export const useGebruikers = defineStore('gebruikers', {
         loggedInUser: null,
     }),
     actions: {
+        addUser(newUser) {
+            this.users.push(newUser);
+            console.log('Nieuwe gebruiker toegevoegd:', newUser);
+        },
         login(username, password) {
             const user = this.users.find(u => u.username === username && u.password === password);
             if (user) {

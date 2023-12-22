@@ -8,6 +8,7 @@ import WinkelmandjeView from '@/views/WinkelmandjeView.vue';
 import PageNotFoundView from '@/views/PageNotFoundView.vue'
 import CheckoutView from '@/views/CheckoutView.vue'
 import BevestigingsPaginaView from '@/views/BevestigingsPaginaView.vue'
+import SignUpView from '@/views/SignUpView.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -29,6 +30,10 @@ const router = createRouter({
         {
             path: '/login',
             component: LoginView
+        },
+        {
+          path: '/Signup',
+          component: SignUpView
         },
         {
             path: '/winkelmandje',

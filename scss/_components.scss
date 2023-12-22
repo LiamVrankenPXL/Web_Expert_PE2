@@ -136,6 +136,11 @@ body::-webkit-scrollbar-thumb {
       color: $licht_blauw;
     }
 
+    input {
+      @include kaderInput(2px);
+
+    }
+
     p {
       color: $licht_blauw;
       font-size: $font_klein;
@@ -152,6 +157,44 @@ body::-webkit-scrollbar-thumb {
   }
 }
 /*________LOGIN EINDE________*/
+
+
+
+
+/*________SIGNUP START________*/
+.signup__form {
+  p {
+    color: $licht_blauw;
+    font-size: $font_klein;
+  }
+
+  &__formulier {
+    @include flexLayout();
+
+    label {
+      margin-right: 10px;
+    }
+
+    input {
+      @include kaderInput(10px);
+    }
+
+
+
+    button {
+      @include buttonLayoutGroot($licht_blauw);
+      color: $zwart;
+
+      &:hover {
+        background-color: $blauw;
+      }
+    }
+  }
+}
+
+
+
+/*________SIGNUP EINDE________*/
 
 
 

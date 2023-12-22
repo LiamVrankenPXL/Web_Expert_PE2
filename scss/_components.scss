@@ -364,7 +364,11 @@ body::-webkit-scrollbar-thumb {
 
 .volledige__totale__prijs {
   margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }
+
+
 
 /*________BEVESTIGINGSPAGINA EINDE________*/
 
@@ -373,11 +377,17 @@ body::-webkit-scrollbar-thumb {
 /*________PRODUCT DETAIL________*/
 .detail {
   &__layout {
-    background-color: $licht_blauw;
+    background-color: $blauw;
     border-radius: 4px;
 
+    .detail__layout__tekst__Reviews {
+      &__sectie {
+        margin-top: 15px;
+      }
+    }
+
     &__foto {
-      background-color: $blauw;
+      background-color: $donker_blauw;
       border-radius: 20px;
       box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
 

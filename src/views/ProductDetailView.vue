@@ -13,7 +13,7 @@ export default {
       reviews: '(12 reviews)',
       buttonAddToCard: 'Add to cart',
       buttonLogIn: 'Log in',
-      Subtitel1: 'About',
+      selectedSubtitel: 'About',
       Subtitel2: 'Specs',
       Subtitel3: 'Reviews',
       gebruikersStore: useGebruikers(),
@@ -53,6 +53,9 @@ export default {
     },
     goToProducts() {
       this.closePopup();
+    },
+    selectSubtitel(subtitel) {
+      this.selectedSubtitel = subtitel;
     },
   },
   computed: {
@@ -102,17 +105,28 @@ export default {
         </div>
 
         <div class="detail__layout__tekst__options">
-          <p>{{ Subtitel1 }}</p>
-          <p>{{ Subtitel2 }}</p>
-          <p>{{ Subtitel3 }}</p>
+          <p @click="selectSubtitel('About')" :class="{ 'active': selectedSubtitel === 'About' }">About</p>
+          <p @click="selectSubtitel('Specs')" :class="{ 'active': selectedSubtitel === 'Specs' }">Specs</p>
+          <p @click="selectSubtitel('Reviews')" :class="{ 'active': selectedSubtitel === 'Reviews' }">Reviews</p>
         </div>
-        <div class="detail__layout__tekst__About">
+        <div class="detail__layout__tekst__About" v-if="selectedSubtitel === 'About'">
           <p>{{ product.omschrijving }}</p>
+        </div>
+        <div class="detail__layout__tekst__Specs" v-if="selectedSubtitel === 'Specs'">
+          <p><strong>Kleur:</strong> {{ product.specs.kleur }}</p>
+          <p><strong>Gewicht:</strong> {{ product.specs.gewicht }}</p>
+          <p><strong>Afmetingen:</strong> {{ product.specs.afmetingen }}</p>
+        </div>
+        <div class="detail__layout__tekst__Reviews" v-if="selectedSubtitel === 'Reviews'">
+          <div class="detail__layout__tekst__Reviews__sectie" v-for="review in product.reviews" :key="review.gebruikersnaam">
+            <h3><strong>{{ review.gebruikersnaam }}:</strong></h3>
+            <p><strong>Beoordeling:</strong> {{ review.beoordeling }}/5</p>
+            <p><strong>Opmerking:</strong> {{ review.opmerking }}</p>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Voeg de popup toe -->
     <PopupComponent
         v-if="showPopup"
         :message="popupMessage"
@@ -124,3 +138,10 @@ export default {
     />
   </div>
 </template>
+
+<style>
+.detail__layout__tekst__options p.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+</style>

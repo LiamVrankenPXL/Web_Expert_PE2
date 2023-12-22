@@ -1,4 +1,6 @@
 <script>
+import { useGebruikers } from '@/stores/winkelmandje'
+
 export default {
   data() {
     return {
@@ -6,22 +8,17 @@ export default {
       Subtitel: 'Gegevens',
       Subtitel2: 'Winkelmandje Items',
       aantal: 'Aantal: ',
-      naam: '',
       naamLabel: 'Naam:',
-      straat: '',
       straatLabel: 'Straat:',
-      nummer: '',
       nummerLabel: 'Nummer:',
-      stad: '',
       stadLabel: 'Stad:',
-      postcode: '',
       postcodeLabel: 'Postcode:',
-      facturatieVerschillend: false,
       facturatieVerschillendLabel: 'Facturatiegegevens verschillend?',
-      facturatieStraat: '',
+      facturatieVerschillend: false,
       FacturatieStraatLabel: 'Facturatie Straat:',
-      facturatieNummer: '',
+      facturatieStraat: '',
       FacturatieNummerLabel: 'Facturatie BTW:',
+      facturatieNummer: '',
       button: 'Bevestig Bestelling',
       totaalBtw: 'Totaal btw: € ',
       TotaalMetBtw: 'Totaal met btw: € '
@@ -45,10 +42,43 @@ export default {
     winkelmandje() {
       return this.$root.winkelmandje;
     },
-  }
+
+    loggedInUser() {
+      return useGebruikers().loggedInUser || {};
+    },
+
+    naam: {
+      get() {
+        return this.loggedInUser.name || '';
+      },
+    },
+
+    straat: {
+      get() {
+        return this.loggedInUser.street || '';
+      },
+    },
+
+    nummer: {
+      get() {
+        return this.loggedInUser.streetNumber || '';
+      },
+    },
+
+    stad: {
+      get() {
+        return this.loggedInUser.city || '';
+      },
+    },
+
+    postcode: {
+      get() {
+        return this.loggedInUser.postcode || '';
+      },
+    },
+  },
 };
 </script>
-
 
 <template>
   <h1>{{ title }}</h1>
@@ -99,7 +129,7 @@ export default {
         </div>
       </div>
       <router-link to="/bevestiging">
-        <button @click="handleConfirmOrder">{{ button }}</button>
+        <button>{{ button }}</button>
       </router-link>
     </form>
 

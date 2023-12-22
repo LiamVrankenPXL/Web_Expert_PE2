@@ -24,22 +24,33 @@ li, a {
 }
 
 body {
+  background: radial-gradient($donkerder_blauw, $donker_thema );
+  animation: gradientAnimation 5s infinite alternate;
+  scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+  border-radius: 6px;
   background-color: $donker_thema;
 }
-/*
-#achtergrond {
-  @include achtergrondAfbeelding("../assets/images/achtergrond.png")
+
+body::-webkit-scrollbar-track {
+  background: $licht_blauw;
 }
 
-#achtergrond2 {
-  @include achtergrondAfbeelding("../assets/images/achtergrond2.png")
-
+body::-webkit-scrollbar-thumb {
+  background-color: $donker_blauw;
 }
 
-#achtergrond2 {
-  @include achtergrondAfbeelding("../assets/images/achtergrond3.png")
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
- */
 /*_____FONDS/ALGEMEEN EINDE_____*/
 
 
@@ -276,6 +287,44 @@ body {
     }
 }
 /*________PRODUCT EINDE________*/
+
+
+
+
+/*________BEVESTIGINGSPAGINA START________*/
+.bevestigings-pagina {
+  padding: 20px;
+}
+
+.bestelde-artikelen {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.besteld-artikel {
+  display: flex;
+  margin: 25px;
+}
+
+.besteld-artikel img {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+}
+
+.product__details {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.volledige-totale-prijs {
+  margin-top: 20px;
+}
+
+/*________BEVESTIGINGSPAGINA EINDE________*/
+
 
 
 /*________PRODUCT DETAIL________*/
@@ -639,7 +688,7 @@ h1 {
 }
 
 
-/* Basisstijlen voor de kijker start*/
+/* kijker start*/
 .index__kijker {
   &__rechts {
     h1 {

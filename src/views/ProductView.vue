@@ -55,9 +55,6 @@ export default {
     changePage(page) {
       this.currentPage = page;
     },
-    showProductDetails(product) {
-      this.$router.push({ name: "productDetail", params: { id: product.id } });
-    },
   },
 
   mounted() {
@@ -95,7 +92,9 @@ export default {
 
 
   <ProductCardComponent
-      :products="displayedProducts" />
+      :products="displayedProducts"
+      :key="currentPage"
+  />
 
   <!--pagination-->
   <div class="pagination" v-if="totalPages > 1">

@@ -49,60 +49,67 @@ export default {
         this.currentIndex--;
       }
     },
+    goToProducts() {
+      this.$router.push({ path: '/products' });
+    },
+    showProductDetails(product) {
+      this.$router.push({ name: "productDetail", params: { id: product.id } });
+    },
   }
 };
 </script>
 
 <template>
-  <!--head-->
-  <div class="index__header">
-    <div class="index__header__links">
-      <h1> {{ Hoofdtitel }}</h1>
-      <p>{{ Hoofdtekst }}</p>
-      <button type="button">{{  HoofdButton }}</button>
-    </div>
-    <div class="index__header__rechts">
-      <img :src="afbeelding1Pad" :alt="afbeelding1Alt">
-    </div>
-  </div>
-
-  
-  <!--in de kijker -->
-  <PopularProductsComponent
-      :carouselProducten="carouselProducten"
-      :currentIndex="currentIndex"
-      @prevProduct="prevProduct"
-      @nextProduct="nextProduct"
-  />
-
-  <!--    rotating cards-->
-  <div class="index__card">
-    <h1>{{  titel2 }}</h1>
-    <div class="index__card__rotate">
-      <div class="index__card__rotate__special" id="card__1">
-        <h2>{{  cardTitel1 }}</h2>
-        <p>{{ cartTekst1 }}</p>
+  <div class="index__main">
+    <div class="index__header">
+      <div class="index__header__links">
+        <h1> {{ Hoofdtitel }}</h1>
+        <p>{{ Hoofdtekst }}</p>
+       <button @click="goToProducts" type="button">{{  HoofdButton }}</button>
       </div>
-      <div class="index__card__rotate__special" id="card__2">
-        <h2>{{  cardTitel2 }}</h2>
-        <p>{{ cartTekst2 }}</p>
-      </div>
-      <div class="index__card__rotate__special" id="card__3">
-        <h2>{{ cardTitel3 }}</h2>
-        <p>{{ cartTekst3 }}</p>
+      <div class="index__header__rechts">
+        <img :src="afbeelding1Pad" :alt="afbeelding1Alt">
       </div>
     </div>
-  </div>
 
-  <!--contact us -->
-  <div class="index__contact">
-    <div class="index__contact__links">
-      <img :src="afbeelding2Pad" :alt="afbeelding2Alt">
+
+    <!--in de kijker -->
+    <PopularProductsComponent
+        :carouselProducten="carouselProducten"
+        :currentIndex="currentIndex"
+        @prevProduct="prevProduct"
+        @nextProduct="nextProduct"
+        @showProductDetails="showProductDetails"/>
+
+    <!--    rotating cards-->
+    <div class="index__card">
+      <h1>{{  titel2 }}</h1>
+      <div class="index__card__rotate">
+        <div class="index__card__rotate__special" id="card__1">
+          <h2>{{  cardTitel1 }}</h2>
+          <p>{{ cartTekst1 }}</p>
+        </div>
+        <div class="index__card__rotate__special" id="card__2">
+          <h2>{{  cardTitel2 }}</h2>
+          <p>{{ cartTekst2 }}</p>
+        </div>
+        <div class="index__card__rotate__special" id="card__3">
+          <h2>{{ cardTitel3 }}</h2>
+          <p>{{ cartTekst3 }}</p>
+        </div>
+      </div>
     </div>
-    <div class="index__contact__rechts">
-      <h1>{{ contactTitel }}</h1>
-      <p>{{ contactTekst }}</p>
-      <button type="button">{{ contactButton }}</button>
+
+    <!--contact us -->
+    <div class="index__contact">
+      <div class="index__contact__links">
+        <img :src="afbeelding2Pad" :alt="afbeelding2Alt">
+      </div>
+      <div class="index__contact__rechts">
+        <h1>{{ contactTitel }}</h1>
+        <p>{{ contactTekst }}</p>
+        <button type="button">{{ contactButton }}</button>
+      </div>
     </div>
   </div>
 </template>

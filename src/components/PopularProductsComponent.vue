@@ -29,7 +29,10 @@ export default {
     nextProduct() {
       this.$emit('nextProduct');
     },
-  },
+    logButtonClick() {
+      this.$emit('showProductDetails', this.currentProduct);
+    }
+  }
 };
 </script>
 
@@ -48,7 +51,7 @@ export default {
       </h1>
       <p v-if="currentProduct && currentProduct.omschrijving">
         {{ currentProduct.omschrijving }}</p>
-      <button type="button">{{ meerInfo }}</button>
+      <button @click="logButtonClick" type="button">{{ meerInfo }}</button>
     </div>
   </div>
 </template>

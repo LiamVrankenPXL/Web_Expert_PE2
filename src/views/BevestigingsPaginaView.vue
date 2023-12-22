@@ -49,43 +49,7 @@ export default {
         </div>
       </div>
     </div>
-    <!-- Totaalprijs zonder BTW -->
     <p class="volledige-totale-prijs">{{ totaalPrijsZonderBtw }} {{ calculateTotalWithoutBtw().toFixed(2) }}</p>
-    <!-- Totaalprijs met BTW -->
     <p class="volledige-totale-prijs">{{ totalePrijsMetBtw }} {{ calculateTotalWithBtw().toFixed(2) }}</p>
   </div>
 </template>
-
-
-<style>
-.bevestigings-pagina {
-  padding: 20px;
-}
-
-.bestelde-artikelen {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.besteld-artikel {
-  display: flex;
-  margin: 25px;
-}
-
-.besteld-artikel img {
-  width: 100px;
-  height: 100px;
-  margin-right: 10px;
-}
-
-.product__details {
-  display: flex;
-  flex-direction: column;
-}
-
-
-.volledige-totale-prijs {
-  margin-top: 20px;
-}
-</style>
